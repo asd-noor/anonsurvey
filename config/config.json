@@ -1,0 +1,13 @@
+{
+    "App": {
+        "Port": 8080
+    },
+    "DB": {
+        "Host": "localhost",
+        "Port": 3306,
+        "User": "anonsurvey",
+        "Pass": "yevrusnona",
+        "Schema": "dbsurvey",
+        "Debug": true
+    }
+}

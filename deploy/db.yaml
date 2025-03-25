@@ -1,0 +1,31 @@
+services:
+  db-node1:
+     container_name: 'scylladb-1'
+     image: 'scylladb/scylla:5.2.0'
+     volumes:
+       - circle-dev-redis-volume-v2:/data
+     command:
+       - 'redis-server'
+       - '/usr/local/etc/redis/redis.conf'
+     ports:
+       - '5978:6379'
+     networks:
+       - anon-network
+
+  db-node2:
+    container_name: scylladb-2
+    image: 'scylladb/scylla:5.2.0'
+    volumes:
+      - circle-dev-redis-volume-v2:/data
+      - ../config/dev/redis.conf:/usr/local/etc/redis/redis.conf
+    command:
+      - 'redis-server'
+      - '/usr/local/etc/redis/redis.conf'
+    ports:
+      - '5978:6379'
+    networks:
+      - anon-network
+
+volumes:
+  db-volume-1:
+  db-volume-2:
